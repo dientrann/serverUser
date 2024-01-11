@@ -1,11 +1,13 @@
 import mysql from "mysql";
+import dotenv from "dotenv";
+dotenv.config();
 
 export const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "userserver",
-    authPlugin: 'mysql_native_password'
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
+    authPlugin: process.env.MySQL_AUTH
 });
 
 export const connectDB = () =>{
