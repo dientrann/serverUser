@@ -4,7 +4,8 @@ export const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "test"
+    database: "userserver",
+    authPlugin: 'mysql_native_password'
 });
 
 export const connectDB = () =>{
