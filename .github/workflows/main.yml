@@ -16,11 +16,11 @@ jobs:
         password: ${{ secrets.PASS }}
         port: 22
         script: |
-          cd /var/www/server_nodejs
+          cd /var/www/serverUser
           git pull
           . $HOME/.nvm/nvm.sh
           nvm use
           npm install --omit=dev
           pm2 delete all
-          pm2 start ./src/app.js
+          pm2 start ./src/main.js
           curl -X POST -H "Content-Type: application/json" -H "Authorization:${{ secrets.DISCORD_KEY }}" -d '{"content":"Dự án node js đã deploy thành công "}' https://discord.com/api/v9/channels/1192476724164820992/messages
